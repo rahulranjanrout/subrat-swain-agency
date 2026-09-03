@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subrat Swain Agency — Asset & Debt Management</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#161a22;
+    --paper:#f4f1e9;
+    --panel:#1c2431;
+    --panel-2:#232c3b;
+    --brass:#b8863b;
+    --brass-light:#d9ab5f;
+    --line: rgba(22,26,34,0.14);
+    --line-light: rgba(244,241,233,0.16);
+    --muted:#5b5f68;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    line-height:1.12;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px;
+    max-width:1180px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-mark{
+    width:38px; height:38px; border-radius:50%;
+    background:var(--panel);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--brass-light);
+    font-family:'Fraunces', serif; font-weight:700; font-size:18px;
+  }
+  .brand-text{display:flex; flex-direction:column; line-height:1.15;}
+  .brand-text strong{font-family:'Fraunces', serif; font-size:18px; font-weight:600;}
+  .brand-text span{font-size:11.5px; color:var(--muted); letter-spacing:.02em;}
+  nav.links{display:flex; gap:36px; align-items:center;}
+  nav.links a{font-size:14.5px; font-weight:500; color:var(--ink); position:relative; padding:4px 0;}
+  nav.links a:hover{color:var(--brass);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--panel); color:var(--paper);
+    padding:11px 22px; border-radius:2px;
+    font-size:14px; font-weight:500;
+    border:1px solid var(--panel);
+    transition:background .2s ease, color .2s ease;
+  }
+  .btn:hover{background:var(--brass); border-color:var(--brass); color:#161a22;}
+  .btn-outline{
+    background:transparent; color:var(--ink); border:1px solid var(--ink);
+  }
+  .btn-outline:hover{background:var(--ink); color:var(--paper);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:88px 32px 0;
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:end;
+  }
+  .hero-eyebrow{
+    font-size:14px; color:var(--brass); font-weight:600; margin-bottom:22px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .hero-eyebrow::before{content:""; width:26px; height:1px; background:var(--brass);}
+  .hero h1{
+    font-size:clamp(38px, 5vw, 60px);
+    max-width:11.5ch;
+  }
+  .hero-sub{
+    margin-top:26px; max-width:46ch; color:var(--muted); font-size:17px;
+  }
+  .hero-cta{margin-top:36px; display:flex; gap:16px; flex-wrap:wrap;}
+  .hero-figure{
+    position:relative;
+  }
+  .hero-stat{
+    background:var(--panel); color:var(--paper);
+    padding:26px 28px; border-radius:2px;
+    margin-bottom:18px;
+  }
+  .hero-stat .num{font-family:'Fraunces', serif; font-size:44px; color:var(--brass-light); font-weight:600;}
+  .hero-stat .cap{font-size:13.5px; color:rgba(244,241,233,0.7); margin-top:4px;}
+  .hero-img-frame{
+    border:1px solid var(--line); padding:10px; background:#fff;
+  }
+  .hero-img-frame img{width:100%; height:230px; object-fit:cover;}
+
+  .marquee-strip{
+    margin-top:78px; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:20px 32px;
+  }
+  .marquee-inner{
+    max-width:1180px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px;
+  }
+  .marquee-inner span{font-size:13px; color:var(--muted); letter-spacing:.03em;}
+  .marquee-inner .items{display:flex; gap:34px; font-family:'Fraunces', serif; font-size:15px; color:var(--ink); flex-wrap:wrap;}
+
+  /* ---------- Section shell ---------- */
+  section{padding:100px 32px;}
+  .section-head{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:50px; align-items:end;
+    margin-bottom:56px; max-width:1180px; margin-left:auto; margin-right:auto;
+  }
+  .section-head h2{font-size:clamp(28px, 3.4vw, 40px);}
+  .section-head p{color:var(--muted); font-size:16px; max-width:46ch;}
+  .num-tag{font-family:'Fraunces', serif; font-size:14px; color:var(--brass); margin-bottom:14px;}
+
+  /* ---------- Approach / process ---------- */
+  .process{max-width:1180px; margin:0 auto;}
+  .process-list{border-top:1px solid var(--line);}
+  .process-row{
+    display:grid; grid-template-columns:70px 1fr 1.4fr; gap:36px;
+    padding:34px 0; border-bottom:1px solid var(--line);
+    align-items:start;
+  }
+  .process-row .idx{font-family:'Fraunces', serif; font-size:15px; color:var(--brass); padding-top:4px;}
+  .process-row h3{font-size:21px;}
+  .process-row p{color:var(--muted); font-size:15.5px; margin-top:10px;}
+
+  /* ---------- About (dark panel) ---------- */
+  .about-panel{
+    background:var(--panel); color:var(--paper);
+  }
+  .about-inner{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns:0.95fr 1.05fr; gap:70px; align-items:center;
+  }
+  .about-inner img{width:100%; height:420px; object-fit:cover; border:1px solid var(--line-light);}
+  .about-text .num-tag{color:var(--brass-light);}
+  .about-text h2{font-size:clamp(28px, 3.4vw, 38px); max-width:14ch;}
+  .about-text p{margin-top:22px; color:rgba(244,241,233,0.75); font-size:16px; max-width:48ch;}
+  .about-facts{display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-top:38px;}
+  .about-facts div{border-top:1px solid var(--line-light); padding-top:14px;}
+  .about-facts .num{font-family:'Fraunces', serif; font-size:30px; color:var(--brass-light);}
+  .about-facts .lab{font-size:13px; color:rgba(244,241,233,0.65); margin-top:4px;}
+
+  /* ---------- Why choose us ---------- */
+  .why-grid{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .why-card{background:var(--paper); padding:34px 28px;}
+  .why-card h4{font-size:18px; margin-bottom:12px;}
+  .why-card p{color:var(--muted); font-size:14.5px;}
+
+  /* ---------- Clients ---------- */
+  .clients-wrap{max-width:1180px; margin:0 auto; text-align:center;}
+  .clients-row{
+    margin-top:44px; display:flex; justify-content:center; gap:70px; flex-wrap:wrap; align-items:center;
+  }
+  .client-chip{
+    font-family:'Fraunces', serif; font-size:20px; color:var(--muted);
+    border-bottom:1px solid var(--line); padding-bottom:8px;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta{
+    background:var(--brass); color:#1c1508;
+    padding:70px 32px; text-align:center;
+  }
+  .cta-inner{max-width:760px; margin:0 auto;}
+  .cta h2{font-size:clamp(26px,3.6vw,36px); margin-bottom:26px;}
+  .cta .btn{background:#1c1508; color:var(--paper); border-color:#1c1508;}
+  .cta .btn:hover{background:transparent; color:#1c1508;}
+
+  /* ---------- Footer ---------- */
+  footer{background:#101521; color:rgba(244,241,233,0.7); padding:64px 32px 26px;}
+  .footer-inner{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:50px;
+  }
+  .footer-inner h4{color:var(--paper); font-size:15px; margin-bottom:16px; font-family:'Work Sans',sans-serif; font-weight:600;}
+  .footer-inner p, .footer-inner a{font-size:14.5px; color:rgba(244,241,233,0.65); display:block; margin-bottom:10px;}
+  .footer-inner a:hover{color:var(--brass-light);}
+  .footer-brand{display:flex; align-items:center; gap:12px; margin-bottom:18px;}
+  .footer-bottom{
+    max-width:1180px; margin:50px auto 0; padding-top:22px;
+    border-top:1px solid var(--line-light);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:13px; color:rgba(244,241,233,0.45);
+  }
+
+  @media(max-width:900px){
+    .nav{padding:16px 20px;}
+    nav.links{display:none;}
+    .hero{grid-template-columns:1fr; padding-top:48px;}
+    .section-head{grid-template-columns:1fr;}
+    .about-inner{grid-template-columns:1fr;}
+    .about-inner img{height:280px;}
+    .why-grid{grid-template-columns:1fr 1fr;}
+    .process-row{grid-template-columns:40px 1fr; grid-template-areas:"idx title" ". body";}
+    .footer-inner{grid-template-columns:1fr; gap:32px;}
+    section{padding:64px 20px;}
+    .wrap{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="brand-mark">S</div>
+      <div class="brand-text">
+        <strong>Subrat Swain Agency</strong>
+        <span>Asset & Debt Management</span>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a href="#clients">Clients</a>
+    </nav>
+    <a href="#contact" class="btn">Reach Us</a>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:0;">
+  <div>
+    <div class="hero-eyebrow">Bhubaneswar, Odisha</div>
+    <h1>Take control of your business with smart debt management</h1>
+    <p class="hero-sub">We work with financial institutions, banks, and businesses to recover, restructure, and manage assets — turning outstanding obligations into a plan that gets your business moving again.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn">Get in touch</a>
+      <a href="#services" class="btn btn-outline">See our services</a>
+    </div>
+  </div>
+  <div class="hero-figure">
+    <div class="hero-stat">
+      <div class="num">15+</div>
+      <div class="cap">Years managing recovery and asset portfolios for financial institutions</div>
+    </div>
+    <div class="hero-img-frame">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=900&auto=format&fit=crop" alt="Office discussion">
+    </div>
+  </div>
+</section>
+
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Working with</span>
+    <div class="items">
+      <span>Nationalised Banks</span>
+      <span>NBFCs</span>
+      <span>Private Lenders</span>
+      <span>Corporate Clients</span>
+    </div>
+  </div>
+</div>
+
+<section id="approach">
+  <div class="section-head">
+    <div>
+      <div class="num-tag">How we work</div>
+      <h2>We help you build the business you set out to build</h2>
+    </div>
+    <p>Every engagement starts the same way — by understanding where you are, where you're headed, and what's standing between the two.</p>
+  </div>
+  <div class="process">
+    <div class="process-list">
+      <div class="process-row">
+        <div class="idx">01</div>
+        <h3>Identify goals</h3>
+        <p>We sit down with you to understand your business goals in detail, then translate them into an actionable, measurable plan.</p>
+      </div>
+      <div class="process-row">
+        <div class="idx">02</div>
+        <h3>Bring ideas to life</h3>
+        <p>The plan we build together doesn't stay on paper. We help you take the first concrete steps and put the right structures in place.</p>
+      </div>
+      <div class="process-row">
+        <div class="idx">03</div>
+        <h3>Expand with confidence</h3>
+        <p>Getting set up is only the start. We help you think several steps ahead, so growth is planned rather than accidental.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-panel" id="about">
+  <div class="about-inner">
+    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=900&auto=format&fit=crop" alt="Team meeting">
+    <div class="about-text">
+      <div class="num-tag">Trust us</div>
+      <h2>We're here to help, not just to consult</h2>
+      <p>If you're looking for a reliable business partner who understands both the numbers and the people behind them, that's us. With years spent inside debt management and asset recovery, we've learned how to keep pace with a changing market — and help you do the same.</p>
+      <div class="about-facts">
+        <div><div class="num">200+</div><div class="lab">Cases handled</div></div>
+        <div><div class="num">3</div><div class="lab">Core service lines</div></div>
+        <div><div class="num">15+</div><div class="lab">Years in practice</div></div>
+        <div><div class="num">24/7</div><div class="lab">Client support</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-head">
+    <div>
+      <div class="num-tag">What we do</div>
+      <h2>Services built around your recovery and growth</h2>
+    </div>
+    <p>Three focused practice areas, each handled by people who've done it before.</p>
+  </div>
+  <div class="process">
+    <div class="process-list">
+      <div class="process-row">
+        <div class="idx">A</div>
+        <h3>Asset Reconstruction</h3>
+        <p>We walk the line between pushing you toward growth and staying realistic about what's achievable — helping you rebuild and redeploy assets so your business keeps scaling.</p>
+      </div>
+      <div class="process-row">
+        <div class="idx">B</div>
+        <h3>Debt Management</h3>
+        <p>We look at both the numbers and the story behind them, working with you on a step-by-step plan toward specific, achievable financial goals.</p>
+      </div>
+      <div class="process-row">
+        <div class="idx">C</div>
+        <h3>Legal Consultancy</h3>
+        <p>We support your team through the legal and procedural side of recovery — from documentation to dispute resolution — so nothing slows your business down.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="section-head" style="margin-bottom:0;">
+    <div>
+      <div class="num-tag">Why choose us</div>
+      <h2>Experienced professionals, younger thinking</h2>
+    </div>
+  </div>
+</section>
+
+<div class="why-grid">
+  <div class="why-card">
+    <h4>Passion & Commitment</h4>
+    <p>We treat every engagement like it's our own business on the line.</p>
+  </div>
+  <div class="why-card">
+    <h4>Honesty & Openness</h4>
+    <p>Clear numbers, clear timelines, no surprises halfway through.</p>
+  </div>
+  <div class="why-card">
+    <h4>Dedicated Team</h4>
+    <p>One point of contact who actually knows your case, start to finish.</p>
+  </div>
+  <div class="why-card">
+    <h4>Practical Approach</h4>
+    <p>Plans built to be workable this quarter, not just on a slide.</p>
+  </div>
+</div>
+
+<section id="clients">
+  <div class="clients-wrap">
+    <div class="num-tag" style="margin-bottom:8px;">Who we serve</div>
+    <h2>We provide services to</h2>
+    <div class="clients-row">
+      <div class="client-chip">Nationalised Banks</div>
+      <div class="client-chip">NBFCs</div>
+      <div class="client-chip">Axis Bank</div>
+      <div class="client-chip">Private Enterprises</div>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="cta-inner">
+    <h2>Overcome your obstacles. Get your debts managed professionally, today.</h2>
+    <a href="#contact" class="btn">Reach Us</a>
+  </div>
+</div>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <div class="brand-mark">S</div>
+        <div class="brand-text">
+          <strong style="color:var(--paper);">Subrat Swain Agency</strong>
+          <span style="color:rgba(244,241,233,0.55);">Asset & Debt Management</span>
+        </div>
+      </div>
+      <p style="max-width:34ch;">A trusted partner for financial institutions and businesses across Odisha, focused on recovery, restructuring, and long-term growth.</p>
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <p>43/E, 2nd Floor,<br>Ashok Nagar, Bhubaneswar,<br>Odisha, India – 751009</p>
+      <p>+91 674 253 0115</p>
+      <p>+91 90400 30115</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About Us</a>
+      <a href="#clients">Clients</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Subrat Swain Agency. All rights reserved.</span>
+    <span>Website design inspired by Infinity Services</span>
+  </div>
+</footer>
+
+</body>
+</html>
